@@ -1,6 +1,8 @@
 var app = angular.module('emcApp2', []);
 
 function mainCtrl($scope, $timeout) {
+	var companyName = 'Microsoft';
+
 	var hours = (new Date()).getHours();
 
 	var timeOfDay = 'Morning'
@@ -11,8 +13,13 @@ function mainCtrl($scope, $timeout) {
 		timeOfDay = 'Afternoon';
 	}
 
-	$scope.greeting = 'Excellent ' + timeOfDay + ' EMC';
+	$scope.hours = hours;
 
+	$scope.greeting = 'Excellent ' + timeOfDay + ' EMC';
+	$scope.companyName = companyName;
+
+
+	$scope.companies = ['Microsoft', 'EMC', 'Intel'];
 
 }
 
