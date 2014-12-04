@@ -1,14 +1,41 @@
-<div>
-	<form role="form">
+<style>
+	input.ng-pristine.ng-invalid{
+		border-color: pink;
+		border-width: 2px;
+	}
+
+	input.ng-dirty.ng-invalid{
+		background-color: red;
+		color: white;
+	}
+
+	input.ng-dirty.ng-valid{
+		border-color: green;
+	}
+</style>
+<div class="col-md-6 col-md-offset-3">
+	<form role="form" name="countryForm">
 		<div class="form-group">
 			<label >Name</label>
-			<input type="text" class="form-control" ng-model="newPlace.name" placeholder="Enter country"></div>
+			<input type="text" maxlength="20" class="form-control" required ng-model="newPlace.name" placeholder="Enter country"></div>
+
+		<div ng-show="newPlace.name == 'India'" class="form-group">
+			<label >Is NRI</label>
+			<input type="checkbox" class="form-control" ng-model="newPlace.isNRI" ></div>
+
 		<div class="form-group">
 			<label >Population</label>
-			<input type="number" class="form-control" ng-model="newPlace.population" placeholder="Population"></div>
+			<input type="number" required name="uPop" class="form-control" ng-model="newPlace.population" max="800000000" placeholder="Population"></div>
+		<h3 ng-show="countryForm.uPop.$valid">
+			<span class="glyphicon glyphicon-ok text-success"></span>
+		</h3>
 		<div class="form-group">
 			<label >Continent</label>
 			<input type="text" class="form-control" ng-model="newPlace.continent" placeholder="Continent"></div>
-		<button ng-click="addPlace(newPlace)" class="btn btn-default">Submit</button>
+		<div class="form-group">
+			<label >Description</label>
+			<textarea rows="8" class="form-control" ng-model="newPlace.description" placeholder="Description"></textarea>
+		</div>
+		<a href="#/listing" ng-disabled="countryForm.$invalid" ng-click="addPlace(newPlace)" class="btn btn-success">Add</a>
 	</form>
 </div>

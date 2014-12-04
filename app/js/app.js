@@ -14,8 +14,11 @@ app.config(function($routeProvider){
 	});
 
 	$routeProvider.when('/add', {
-		templateUrl : 'partials/add.html'
+		templateUrl : 'partials/add.html',
+		controller : 'addController'
 	})
+
+	$routeProvider.otherwise({redirectTo: '/home'})
 
 })
 

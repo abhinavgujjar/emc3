@@ -1,9 +1,13 @@
 angular.module('emcApp')
-	.controller('addController', function($scope,placesData) {
+	.controller('addController', function($scope, placesData) {
 		$scope.addPlace = function(newPlace) {
 
-			var place = angular.copy(newPlace);
+			if ($scope.countryForm.$invalid) {
+				alert('invalid, aborting aborting');
+			} else {
+				var place = angular.copy(newPlace);
 
-			placesData.addPlace(place);
+				placesData.addPlace(place);
+			}
 		}
 	});
