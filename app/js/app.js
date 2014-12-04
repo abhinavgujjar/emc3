@@ -1,7 +1,32 @@
 //var limitResult = 40; //WRONG
 
 
-var app = angular.module('emcApp', []);
+var app = angular.module('emcApp', ['ngRoute']);
+
+app.config(function($routeProvider){
+
+	$routeProvider.when('/home', {
+		templateUrl : 'partials/home.html'
+	})	;
+
+	$routeProvider.when('/listing', {
+		templateUrl : 'partials/listing.html'
+	})	;
+
+})
+
+app.filter('toSqMi', function(){
+
+
+	return function(input, toAcres){
+		var multi = 0.386102;
+		if ( toAcres ){
+			multi = 247.105;
+		}
+
+		return input * multi;
+	}
+})
 
 //services
 app.value('limitResults', 20);

@@ -1,0 +1,70 @@
+<div class="row">
+
+		<div class="col-md-9" ng-controller="listingController">
+			<div >
+				<input type="number" ng-model="decimalPlaces" />
+				search :
+				<input type="text" ng-model="searchTerm" />
+				order :
+				<input type="text" ng-model="orderTerm" />
+				<input type="checkbox" ng-model="isDesc" />
+				Desc
+				limit :
+				<select ng-model="limitResults">
+					<option value="2">2</option>
+					<option value="10">10</option>
+					<option value="15">15</option>
+				</select>
+			</div>
+			<br/>
+			<br/>
+			<div class="row well" ng-class="{'highlight' : item.name === favoritePlace}" ng-repeat="item in person.placesVisited | filter : searchTerm | orderBy : orderTerm : isDesc | limitTo : limitResults" >
+				<img ng-src="http://i.imgur.com/{{item.flag}}" class="col-md-3 col-sm-6" />
+				<div class="col-md-9">
+					<div class="row">
+						<div class="col-md-4 col-sm-2" ng-class-even="'green'" ng-class-odd="'red'">{{item.name | uppercase}}</div>
+						<div class="col-md-3 col-sm-2" ng-class-even="'green'" ng-class-odd="'red'">{{item.population | number : decimalPlaces }}</div>
+						<div class="col-md-3 col-sm-2" ng-class-even="'green'" ng-class-odd="'red'">{{item.continent}}</div>
+					</div>
+					<br/>
+					<div>
+						Area : <span class="label label-warning">{{item.area | toSqMi : true | number : 2}}</span>
+					</div>
+					<br/>
+					<div class="row text-muted">
+						<small ng-hide="item.showMore">{{item.description | limitTo : 200}}</small>
+						<small ng-show="item.showMore">{{item.description}}</small>
+						<span ng-show="item.description.length >
+							200 && !item.showMore">
+							<a href="" ng-click="showMore(item)">more...</a>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-3" ng-controller="addController">
+
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">Quick Add</h3>
+				</div>
+				<div class="panel-body">
+					<form role="form">
+						<div class="form-group">
+							<label >Name</label>
+							<input type="text" class="form-control" ng-model="newPlace.name" placeholder="Enter country"></div>
+						<div class="form-group">
+							<label >Population</label>
+							<input type="number" class="form-control" ng-model="newPlace.population" placeholder="Population"></div>
+						<div class="form-group">
+							<label >Continent</label>
+							<input type="text" class="form-control" ng-model="newPlace.continent" placeholder="Continent"></div>
+						<button ng-click="addPlace(newPlace)" class="btn btn-default">Submit</button>
+					</form>
+				</div>
+			</div>
+
+			<div>New Place : {{newPlace}}</div>
+		</div>
+	</div>
