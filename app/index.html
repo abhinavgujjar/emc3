@@ -27,7 +27,7 @@
 			{{greeting}}
 			<button ng-click="extraGreeting()">GREET</button>
 		</div>
-		<div class="col-md-4">User Info</div>
+		<div class="col-md-4" ng-controller="userController">{{ready}}</div>
 	</div>
 	
 	<br/>
@@ -41,5 +41,7 @@
 	<script src="js/controllers/greetingController.js"></script>
 	<script src="js/controllers/listingController.js"></script>
 	<script src="js/controllers/addController.js"></script>
+	<script src="js/controllers/userController.js"></script>
+	<script src="js/services/googleService.js"></script>
 </body>
 </html>

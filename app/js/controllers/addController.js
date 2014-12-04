@@ -10,4 +10,15 @@ angular.module('emcApp')
 				placesData.addPlace(place);
 			}
 		}
+
+		$scope.newPlace = {
+			cities : ['dummy']
+		}
+
+		$scope.addCity = function(city){
+			$scope.newPlace.cities.push(city);
+
+			$scope.newCity = '';
+		};
+
 	});
