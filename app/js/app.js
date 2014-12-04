@@ -7,16 +7,19 @@ app.config(function($routeProvider){
 
 	$routeProvider.when('/home', {
 		templateUrl : 'partials/home.html'
-	})	;
+	});
 
 	$routeProvider.when('/listing', {
 		templateUrl : 'partials/listing.html'
-	})	;
+	});
+
+	$routeProvider.when('/add', {
+		templateUrl : 'partials/add.html'
+	})
 
 })
 
 app.filter('toSqMi', function(){
-
 
 	return function(input, toAcres){
 		var multi = 0.386102;

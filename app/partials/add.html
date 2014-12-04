@@ -1,0 +1,14 @@
+<div>
+	<form role="form">
+		<div class="form-group">
+			<label >Name</label>
+			<input type="text" class="form-control" ng-model="newPlace.name" placeholder="Enter country"></div>
+		<div class="form-group">
+			<label >Population</label>
+			<input type="number" class="form-control" ng-model="newPlace.population" placeholder="Population"></div>
+		<div class="form-group">
+			<label >Continent</label>
+			<input type="text" class="form-control" ng-model="newPlace.continent" placeholder="Continent"></div>
+		<button ng-click="addPlace(newPlace)" class="btn btn-default">Submit</button>
+	</form>
+</div>
