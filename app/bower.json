@@ -1,0 +1,12 @@
+{
+  "name": "travelog",
+  "description": "Case study for EMC",
+  "version": "0.0.0",
+  "homepage": "https://github.com/angular/angular-seed",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "1.2.x",
+    "angular-route": "1.2.x"
+  }
+}
