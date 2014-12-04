@@ -11,6 +11,10 @@ angular.module('emcApp').controller('listingController',
 			lastName: 'Jobs'
 		}
 
+		$scope.showMore = function(item){
+			item.showMore = true;
+		}
+
 		$scope.person.placesVisited = data.getPlaces();
 
 	}]);
