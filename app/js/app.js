@@ -6,8 +6,14 @@ var app = angular.module('emcApp', []);
 //services
 app.value('limitResults', 3);
 
+app.factory('defaults', function() {
+	return {
+		flag: '7AiQqse.png'
+	}
+});
 
-app.factory('placesData', function() {
+
+app.factory('placesData', function(defaults) {
 
 	var placesVisited = [{
 		name: 'USA',
@@ -67,10 +73,20 @@ app.factory('placesData', function() {
 		description: 'Egypt (Listeni/ˈiːdʒɪpt/; Arabic: مِصر‎ Miṣr, Egyptian Arabic: مَصر Maṣr) is an Afro-Asiatic transcontinental country spanning the northeast corner of Africa and southwest corner of Asia, via a land bridge formed by the Sinai Peninsula. Most of Egypts territory of 1,010,000 square kilometres (390,000 sq mi) lies within the Nile Valley of North Africa, but it is also considered a Mediterranean country as it is bordered by the Mediterranean Sea to the north. It is also bordered by the Gaza Strip and Israel to the northeast, the Gulf of Aqaba to the east, the Red Sea to the east and south, Sudan to the south and Libya to the west. With over 87 million inhabitants, Egypt is the largest country in North Africa and the Arab World, the third - largest in Africa, and the fifteenth - most populous in the world.The great majority of its people live near the banks of the Nile River, an area of about 40, 000 square kilometres(15, 000 sq mi), where the only arable land is found.The large regions of the Sahara Desert, which constitute most of Egypts territory, are sparsely inhabited.About half of Egypts residents live in urban areas, with most spread across the densely populated centres of greater Cairo, Alexandria and other major cities in the Nile Delta. '
 	}];
 
-	return {
+	var service = {
 		getPlaces: function() {
 			return placesVisited;
-		}
-	}
+		},
+		addPlace: function(place) {
 
-})
+			if (!place.flag) {
+				place.flag = defaults.flag
+			}
+
+			placesVisited.push(place);
+		}
+	};
+
+	return service;
+
+});

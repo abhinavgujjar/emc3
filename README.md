@@ -13,3 +13,5 @@ Revealing Module Pattern - http://plnkr.co/edit/ixqG3Ed8ub6v9R7FbVTB?p=preview
 
 Javascript Patterns - http://addyosmani.com/resources/essentialjsdesignpatterns/book/
 
+Angular debugging Extension for chrome - (Batarang)[https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk?hl=en] 
+

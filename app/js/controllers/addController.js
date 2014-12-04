@@ -1,9 +1,9 @@
 angular.module('emcApp')
-	.controller('addController', function($scope) {
+	.controller('addController', function($scope,placesData) {
 		$scope.addPlace = function(newPlace) {
 
 			var place = angular.copy(newPlace);
 
-			$scope.person.placesVisited.push(place);
+			placesData.addPlace(place);
 		}
 	});
