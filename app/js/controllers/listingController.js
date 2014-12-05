@@ -21,6 +21,10 @@ angular.module('emcApp').controller('listingController',
 		$location.url('/details');
 	}
 
+	$scope.addFavorite = function(item){
+		$scope.$emit('favorite:add', item);
+	}
+
 	data.getPlaces().then(function(data) {
 		$scope.person.placesVisited = data;
 	});
