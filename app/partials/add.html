@@ -43,7 +43,7 @@
 			<a href="#/listing" ng-disabled="countryForm.$invalid" ng-click="addPlace(newPlace)" class="btn btn-success">Add</a>
 		</form>
 	</div>
-	<div class="col-md-4 col-md-offset-2">
+	<div class="col-md-4 col-md-offset-1">
 		<div>
 		<ul class="list-group">
 			<li class="list-group-item" ng-repeat="city in newPlace.cities">
@@ -62,7 +62,13 @@
 		</ul>
 		</div>
 		<div>
-			{{newPlace | json}}
+			<div>
+				<div class="pull-left"><button ng-click="prev()" class="btn btn-sm btn-default" >Prev</button></div>
+				<div class="pull-right"><button ng-click="next()" class="btn btn-sm btn-default">Next</button></div>
+			</div>
+			<div>
+				<img src="http://i.imgur.com/{{flags[index]}}" class=" img-circle col-md-10 col-md-offset-1">
+			</div>
 		</div>
 	</div>
 </div>

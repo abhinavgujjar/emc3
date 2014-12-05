@@ -1,4 +1,3 @@
-
 app.factory('placesData', function(defaults, $http, $q) {
 
 
@@ -6,11 +5,13 @@ app.factory('placesData', function(defaults, $http, $q) {
 		getPlaces: function() {
 			var deferred = $q.defer();
 
-			$http({
-				method: 'GET',
-				url: 'data/countries.json'
+			$http.get('https://api.parse.com/1/classes/places', {
+				headers: {
+					'X-Parse-Application-Id': 'U5IchxaA05dCiTOsdr3wawO67fwPDmfQJsCUVCa6',
+					'X-Parse-REST-API-Key': 'PEl224ONusWRJLsK5mA3QxovfKbwbiSKESUffXv4',
+				}
 			}).success(function(data) {
-				deferred.resolve(data);
+				deferred.resolve(data.results);
 			});
 
 			return deferred.promise;
@@ -21,7 +22,12 @@ app.factory('placesData', function(defaults, $http, $q) {
 				place.flag = defaults.flag
 			}
 
-			placesVisited.push(place);
+			$http.post('https://api.parse.com/1/classes/places', place, {
+				headers: {
+					'X-Parse-Application-Id': 'U5IchxaA05dCiTOsdr3wawO67fwPDmfQJsCUVCa6',
+					'X-Parse-REST-API-Key': 'PEl224ONusWRJLsK5mA3QxovfKbwbiSKESUffXv4',
+				}
+			});
 		}
 	};
 
