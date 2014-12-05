@@ -17,3 +17,4 @@ Angular debugging Extension for chrome - (Batarang)[https://chrome.google.com/we
 
 async programming with q - http://plnkr.co/edit/nvILU1F2kZk6Y5CnSeEc?p=preview
 
+Custom Directives - http://plnkr.co/edit/xSx1rr0pM8462yyDG7Sc
