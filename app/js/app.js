@@ -1,7 +1,7 @@
 //var limitResult = 40; //WRONG
 
 
-var app = angular.module('emcApp', ['ui.router', 'tjGoog']);
+var app = angular.module('emcApp', ['ui.router', 'tjGoog', 'ngSanitize']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
@@ -36,9 +36,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 })
 
-app.controller('mainController', function($scope){
+app.controller('mainController', function($scope) {
 	$scope.favorites = [];
-	$scope.$on('favorite:add', function(event, data){
+	$scope.$on('favorite:add', function(event, data) {
 		$scope.favorites.push(data.name);
 	})
 })
@@ -52,6 +52,17 @@ app.filter('toSqMi', function() {
 		}
 
 		return input * multi;
+	}
+});
+
+app.directive('preview', function() {
+	return {
+		restrict: 'E',
+		templateUrl: 'partials/preview.html',
+		scope: {
+			entry: '=input',
+			rows: '@'
+		}
 	}
 })
 

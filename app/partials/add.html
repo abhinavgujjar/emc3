@@ -1,5 +1,4 @@
-<div>
-	<style>
+<style>
 	input.ng-pristine.ng-invalid{
 		border-color: pink;
 		border-width: 2px;
@@ -14,6 +13,7 @@
 		border-color: green;
 	}
 </style>
+<div class="row">
 	<div class="col-md-5 col-md-offset-1">
 		<form role="form" name="countryForm">
 			<div class="form-group">
@@ -27,9 +27,7 @@
 			<div class="form-group">
 				<label >Population</label>
 				<input type="number" required name="uPop" class="form-control" ng-model="newPlace.population" max="800000000" placeholder="Population"></div>
-				<div>
-					{{countryForm.uPop.$viewValue}}
-				</div>
+			<div>{{countryForm.uPop.$viewValue}}</div>
 			<h3 ng-show="countryForm.uPop.$valid">
 				<span class="glyphicon glyphicon-ok text-success"></span>
 			</h3>
@@ -38,37 +36,40 @@
 				<input type="text" class="form-control" ng-model="newPlace.continent" placeholder="Continent"></div>
 			<div class="form-group">
 				<label >Description</label>
-				<textarea rows="8" class="form-control" ng-model="newPlace.description" placeholder="Description"></textarea>
+				<preview input="newPlace.description" rows="6"></preview>
 			</div>
 			<a href="#/listing" ng-disabled="countryForm.$invalid" ng-click="addPlace(newPlace)" class="btn btn-success">Add</a>
 		</form>
 	</div>
 	<div class="col-md-4 col-md-offset-1">
 		<div>
-		<ul class="list-group">
-			<li class="list-group-item" ng-repeat="city in newPlace.cities">
+			<ul class="list-group">
+				<li class="list-group-item" ng-repeat="city in newPlace.cities">
 
-				<span ng-hide="edit">{{city}}</span>
-				<span ng-show="edit">
-					<input type="text" ng-model="city"/>
-				</span>
-				<button ng-show="edit" class="btn btn-sucess" ng-click="edit = false">save</button>
-				<button ng-hide="edit" class="btn btn-warning" ng-click="edit = true">edit</button>
-			</li>
-			<li class="list-group-item">
-				<input type="text" ng-model="newCity">
-				<button ng-click="addCity(newCity)">Add</button>
-			</li>
-		</ul>
+					<span ng-hide="edit">{{city}}</span>
+					<span ng-show="edit">
+						<input type="text" ng-model="city"/>
+					</span>
+					<button ng-show="edit" class="btn btn-sucess" ng-click="edit = false">save</button>
+					<button ng-hide="edit" class="btn btn-warning" ng-click="edit = true">edit</button>
+				</li>
+				<li class="list-group-item">
+					<input type="text" ng-model="newCity">
+					<button ng-click="addCity(newCity)">Add</button>
+				</li>
+			</ul>
 		</div>
 		<div>
 			<div>
-				<div class="pull-left"><button ng-click="prev()" class="btn btn-sm btn-default" >Prev</button></div>
-				<div class="pull-right"><button ng-click="next()" class="btn btn-sm btn-default">Next</button></div>
+				<div class="pull-left">
+					<button ng-click="prev()" class="btn btn-sm btn-default" >Prev</button>
+				</div>
+				<div class="pull-right">
+					<button ng-click="next()" class="btn btn-sm btn-default">Next</button>
+				</div>
 			</div>
 			<div>
-				<img ng-src="http://i.imgur.com/{{flags[index]}}" class=" img-circle col-md-10 col-md-offset-1">
-			</div>
+				<img ng-src="http://i.imgur.com/{{flags[index]}}" class=" img-circle col-md-10 col-md-offset-1"></div>
 		</div>
 	</div>
 </div>
