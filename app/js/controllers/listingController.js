@@ -21,7 +21,7 @@ angular.module('emcApp').controller('listingController',
 		$location.url('/details');
 	}
 
-	data.getPlaces(function(data) {
+	data.getPlaces().then(function(data) {
 		$scope.person.placesVisited = data;
 	});
 
