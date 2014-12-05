@@ -3,30 +3,36 @@
 
 var app = angular.module('emcApp', ['ngRoute', 'tjGoog']);
 
-app.config(function($routeProvider){
+app.config(function($routeProvider) {
 
 	$routeProvider.when('/home', {
-		templateUrl : 'partials/home.html'
+		templateUrl: 'partials/home.html'
 	});
 
 	$routeProvider.when('/listing', {
-		templateUrl : 'partials/listing.html'
+		templateUrl: 'partials/listing.html'
 	});
 
 	$routeProvider.when('/add', {
-		templateUrl : 'partials/add.html',
-		controller : 'addController'
+		templateUrl: 'partials/add.html',
+		controller: 'addController'
+	})
+	$routeProvider.when('/details', {
+		templateUrl: 'partials/details.html',
+		controller: 'detailsController'
 	})
 
-	$routeProvider.otherwise({redirectTo: '/home'})
+	$routeProvider.otherwise({
+		redirectTo: '/home'
+	})
 
 })
 
-app.filter('toSqMi', function(){
+app.filter('toSqMi', function() {
 
-	return function(input, toAcres){
+	return function(input, toAcres) {
 		var multi = 0.386102;
-		if ( toAcres ){
+		if (toAcres) {
 			multi = 247.105;
 		}
 
@@ -49,13 +55,13 @@ app.factory('placesData', function(defaults, $http) {
 
 	var service = {
 		getPlaces: function(callback) {
-			
+
 			var promise = $http({
-				method : 'GET',
-				url : 'data/countries.json'
+				method: 'GET',
+				url: 'data/countries.json'
 			});
 
-			promise.success(function(data){
+			promise.success(function(data) {
 				callback(data);
 			})
 

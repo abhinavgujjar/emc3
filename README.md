@@ -15,3 +15,5 @@ Javascript Patterns - http://addyosmani.com/resources/essentialjsdesignpatterns/
 
 Angular debugging Extension for chrome - (Batarang)[https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk?hl=en] 
 
+async programming with q - http://plnkr.co/edit/nvILU1F2kZk6Y5CnSeEc?p=preview
+

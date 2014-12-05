@@ -1,4 +1,5 @@
-angular.module('emcApp').controller('listingController', ['$scope', '$timeout', 'limitResults', 'placesData', function($scope, $timeout, limitResults, data) {
+angular.module('emcApp').controller('listingController', 
+	['$scope', '$timeout', 'limitResults', 'placesData', '$location', function($scope, $timeout, limitResults, data, $location) {
 	var companyName = 'Microsoft';
 
 	$scope.favoritePlace = 'India';
@@ -12,6 +13,12 @@ angular.module('emcApp').controller('listingController', ['$scope', '$timeout', 
 
 	$scope.showMore = function(item) {
 		item.showMore = true;
+	}
+
+	$scope.selectCountry= function(country){
+		data.selectedCountry = country;
+
+		$location.url('/details');
 	}
 
 	data.getPlaces(function(data) {
