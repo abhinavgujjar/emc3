@@ -22,24 +22,30 @@
 	}
 </style>
 </head>
-<body class="container" ng-controller="mainController">
-	<div class="row well" >
-		<div class="col-md-8" ng-controller="greetingController">
-			{{greeting}}
-			<button ng-click="extraGreeting()">GREET</button>
+<body  ng-controller="mainController">
+	<ng-include src="'partials/nav.html'" ></ng-include>
+	
+	<div class="container">
+		<div class="row" >
+			<div class="col-md-8 label label-success" ng-controller="greetingController">
+				{{greeting}}
+				
+			</div>
+			<div class="col-md-4" ng-controller="userController">
+				<button ng-disabled="!ready" ng-click="signIn()" class="btn btn-default">Sign In</button>
+
+			</div>
 		</div>
-		<div class="col-md-4" ng-controller="userController">{{ready}}</div>
-	</div>
 
-	<br/>
-	<div>
-		<div ui-view></div>
+		<br/>
+		<div>
+			<div ui-view></div>
+		</div>
+		<br/>
+		<div class="text-muted">
+			<ng-include src="'partials/disclaimer.html'" ></ng-include>
+		</div>
 	</div>
-	<br/>
-	<div class="text-muted">
-		<ng-include src="'partials/disclaimer.html'" ></ng-include>
-	</div>
-
 	<script src="js/app.js"></script>
 	<script src="js/controllers/greetingController.js"></script>
 	<script src="js/controllers/listingController.js"></script>

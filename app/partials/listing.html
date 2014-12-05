@@ -18,7 +18,7 @@
 		</div>
 		<br/>
 		<br/>
-		<div class="row well" ng-class="{'highlight' : item.name === favoritePlace}" ng-repeat="item in person.placesVisited | filter : searchTerm | orderBy : orderTerm : isDesc | limitTo : limitResults" >
+		<div zoom class="row well" ng-class="{'highlight' : item.name === favoritePlace}" ng-repeat="item in person.placesVisited | filter : searchTerm | orderBy : orderTerm : isDesc | limitTo : limitResults" >
 			<img ng-src="http://i.imgur.com/{{item.flag}}" class="col-md-3 col-sm-6" />
 			<div class="col-md-1">
 				<button><span ng-click="addFavorite(item)" class="glyphicon glyphicon-star-empty text-success"></span></button>

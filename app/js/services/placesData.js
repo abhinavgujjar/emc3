@@ -22,6 +22,9 @@ app.factory('placesData', function(defaults, $http, $q) {
 				place.flag = defaults.flag
 			}
 
+			//https://api.parse.com/1/classes/places/{{objectId}}
+			//https://api.parse.com/1/classes/places/6Ktd4Tx8cR
+
 			$http.post('https://api.parse.com/1/classes/places', place, {
 				headers: {
 					'X-Parse-Application-Id': 'U5IchxaA05dCiTOsdr3wawO67fwPDmfQJsCUVCa6',

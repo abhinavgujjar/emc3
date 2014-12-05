@@ -62,6 +62,59 @@ app.directive('preview', function() {
 		scope: {
 			entry: '=input',
 			rows: '@'
+		},
+		controller : function($scope){
+			$scope.header = (new Date()).getHours();
+		},
+		link : function(scope, element, attrs){
+			var i = 0;
+		}
+	}
+})
+
+app.directive('panel', function(){
+	return{
+		restrict : 'E',
+		transclude : true,
+		templateUrl : 'partials/panel.html',
+		scope : {
+			heading : '@'
+		}
+	}
+})
+
+
+app.directive('ticker', function(){
+	return {
+		restrict :'EA',
+		template : "<span><h4>{{ticks}}</h4></span>",
+		scope : {
+			delay : '@'
+		},
+		controller : function($scope, $interval){
+			$scope.ticks = 0;
+
+			$scope.$on('$stateChangeSuccess', function(event, data){
+				$scope.ticks = 0;
+			})
+
+			$interval(function(){
+				$scope.ticks ++;
+			}, $scope.delay);
+		}
+	}
+});
+
+
+app.directive('zoom', function(){
+	return {
+		restrict : 'A',
+		link : function(scope, element, attr){
+			element.on('mouseenter', function(){
+				element.css({
+					'font-size' : '50px'
+				});
+			})
 		}
 	}
 })

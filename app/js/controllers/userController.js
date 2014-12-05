@@ -3,7 +3,11 @@ angular.module('emcApp').controller('userController',
 
 		
 		goog.ready.then(function(){
-			//$scope.ready = true;
+			$scope.ready = true;
 		});
+
+		$scope.signIn = function(){
+			goog.signIn();
+		}
 
 	});
